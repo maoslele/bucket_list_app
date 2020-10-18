@@ -9,17 +9,17 @@ class PostsController < ApplicationController
 
   end
   def create
-    @post = Post.new(title: params[:title], content:params[:content])
+    @post = Post.new(title: params[:title], content: params[:content])
     @post.save
     redirect_to("/posts/index")
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.title = params[:title]
     @post.content = params[:content]
     @post.save
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to("/posts/index")
   end
