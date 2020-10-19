@@ -3,6 +3,10 @@
     <% @posts.each.with_index(1) do | post, i |%>
       <div class="posts-index-item">
         <%= link_to("#{i}. #{post.title}", post_path(post.id)) %>
+        <div class="post-menus">
+          <%= link_to "編集", edit_post_path(post.id) %>
+          <%= link_to "削除", post_path(post.id), method: :delete %>
+        </div>
       </div>
     <% end %>
   </div>
