@@ -3,7 +3,7 @@
     <h1 class="form-heading">新しいリストを追加する</h1>
     <div class="form">
       <div class="form-body">
-        <%= form_tag("/posts/create") do %>
+        <%= form_tag(posts_path, method: :post) do %>
           <textarea name="title"></textarea>
           <textarea name="content"></textarea>
           <input type="submit" value="追加する">

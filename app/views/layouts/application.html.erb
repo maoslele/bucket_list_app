@@ -12,17 +12,17 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to("バケットリスト", "/")%>
+        <%= link_to "バケットリスト", "/" %>
       </div>
       <ul class="header-menus">
         <li>
-          <%= link_to("バケットリストとは", "/about")%>
+          <%= link_to "バケットリストとは", "/about" %>
         </li>
         <li>
-          <%= link_to("リスト一覧", "/posts/index")%>
+          <%= link_to "リスト一覧", posts_path %>
         </li>
         <li>
-          <%= link_to("リストを追加する", "/posts/new")%>
+          <%= link_to "リストを追加する", new_post_path %>
         </li>
       </ul>
     </header>
