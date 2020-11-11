@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new(
       title: params[:title],
       content: params[:content],
+      category: params[:category],
       user_id: current_user.id
     )
     @post.save
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.title = params[:title]
     @post.content = params[:content]
+    @post.category = params[:category]
     @post.save
     redirect_to(posts_path)
   end

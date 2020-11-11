@@ -1,14 +1,14 @@
 <div class="main posts-new">
   <div class="container">
-    <h1 class="form-heading">編集する</h1>
-    <%= form_tag(post_path(@post.id), method: :put) do %>
-      <div class="form">
-        <div class="form-body">
-          <textarea name="title"><%= @post.title %></textarea>
-          <textarea name="content"><%= @post.content %></textarea>
-          <input type="submit" value="保存">
-        </div>
+    <div class="form">
+      <div class="form-body">
+        <%= form_with model:@post, url: post_path(@post.id), method: :put, local: true do |f| %>
+          <%= f.text_field :title, value: @post.title %>
+          <%= f.text_area :content, value: @post.content %>
+          <%= f.select :category, [["仕事", "仕事"], ["趣味", "趣味"], ["健康・美容", "健康・美容"], ["家族・恋人", "家族・恋人"], ["体験", "体験"], ["旅行", "旅行"], ["理想像", "理想像"], ["その他", "その他"]], include_blank: "選択して下さい" , value: @post.category %>
+          <%= f.submit "保存" %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

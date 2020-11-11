@@ -1,12 +1,12 @@
 <div class="main posts-new">
   <div class="container">
-    <h1 class="form-heading">新しいリストを追加する</h1>
     <div class="form">
       <div class="form-body">
-        <%= form_tag(posts_path, method: :post) do %>
-          <textarea name="title"></textarea>
-          <textarea name="content"></textarea>
-          <input type="submit" value="追加する">
+        <%= form_with model:@post, url: posts_path, method: :post, local: true do |f| %>
+          <%= f.text_field :title %>
+          <%= f.text_area :content %>
+          <%= f.select :category, [["仕事", "仕事"], ["趣味", "趣味"], ["健康・美容", "健康・美容"], ["家族・恋人", "家族・恋人"], ["体験", "体験"], ["旅行", "旅行"], ["理想像", "理想像"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+          <%= f.submit "追加する" %>
         <% end %>
       </div>
     </div>
