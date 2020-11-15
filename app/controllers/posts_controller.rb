@@ -26,9 +26,9 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
-    @post.title = params[:title]
-    @post.content = params[:content]
-    @post.category = params[:category]
+    @post.title = params[:post][:title]
+    @post.content = params[:post][:content]
+    @post.category = params[:post][:category]
     @post.save
     redirect_to(posts_path)
   end
